@@ -16,6 +16,7 @@
         <AssociationConnector Association="FluxoCaixaModel.FK_fluxodecaixa_fornecedor" ManuallyRouted="false" />
         <AssociationConnector Association="FluxoCaixaModel.FK_fluxodecaixa_produto" ManuallyRouted="false" />
         <AssociationConnector Association="FluxoCaixaModel.FK_fluxodecaixa_tipodelancamento" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="FluxoCaixaModel.Usuario" Width="1.5" PointX="5.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

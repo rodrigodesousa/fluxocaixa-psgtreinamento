@@ -149,5 +149,14 @@
       <End Role="tipodelancamento" EntitySet="tipodelancamento" />
       <End Role="fluxodecaixa" EntitySet="fluxodecaixa" />
     </AssociationSet>
+    <EntitySet Name="Usuario" EntityType="FluxoCaixaModel.Usuario" />
   </EntityContainer>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nomeUsuario" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="senha" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

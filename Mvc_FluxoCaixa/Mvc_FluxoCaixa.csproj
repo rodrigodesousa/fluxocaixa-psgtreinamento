@@ -169,6 +169,9 @@
     <Compile Include="Models\tipodelancamento.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Usuario.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -244,6 +247,7 @@
     <Content Include="Views\Produto\Details.cshtml" />
     <Content Include="Views\Produto\Edit.cshtml" />
     <Content Include="Views\Produto\Index.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

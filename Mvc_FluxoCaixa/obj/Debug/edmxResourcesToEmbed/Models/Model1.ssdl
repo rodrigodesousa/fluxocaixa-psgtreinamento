@@ -52,6 +52,14 @@
     <Property Name="tipolancamentoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="descrição" Type="varchar" MaxLength="30" Nullable="false" />
   </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nomeUsuario" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="senha" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <Association Name="FK_fluxodecaixa_cliente">
     <End Role="cliente" Type="Self.cliente" Multiplicity="0..1" />
     <End Role="fluxodecaixa" Type="Self.fluxodecaixa" Multiplicity="*" />
@@ -119,6 +127,7 @@
     <EntitySet Name="fornecedor" EntityType="Self.fornecedor" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="produto" EntityType="Self.produto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tipodelancamento" EntityType="Self.tipodelancamento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_fluxodecaixa_cliente" Association="Self.FK_fluxodecaixa_cliente">
       <End Role="cliente" EntitySet="cliente" />
       <End Role="fluxodecaixa" EntitySet="fluxodecaixa" />

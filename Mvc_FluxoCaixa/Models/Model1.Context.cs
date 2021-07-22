@@ -31,5 +31,6 @@ namespace Mvc_FluxoCaixa.Models
         public virtual DbSet<fornecedor> fornecedor { get; set; }
         public virtual DbSet<produto> produto { get; set; }
         public virtual DbSet<tipodelancamento> tipodelancamento { get; set; }
+        public virtual DbSet<Usuario> Usuario { get; set; }
     }
 }
