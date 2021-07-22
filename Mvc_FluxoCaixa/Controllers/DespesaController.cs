@@ -10,7 +10,7 @@ using Mvc_FluxoCaixa.Models;
 
 namespace Mvc_FluxoCaixa.Controllers
 {
-    public class despesasController : Controller
+    public class DespesaController : Controller
     {
         private FluxoCaixaEntities db = new FluxoCaixaEntities();
 
