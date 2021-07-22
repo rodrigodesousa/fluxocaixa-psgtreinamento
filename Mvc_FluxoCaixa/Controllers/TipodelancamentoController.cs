@@ -10,114 +10,107 @@ using Mvc_FluxoCaixa.Models;
 
 namespace Mvc_FluxoCaixa.Controllers
 {
-    public class DespesaController : Controller
+    public class TipodelancamentoController : Controller
     {
         private FluxoCaixaEntities db = new FluxoCaixaEntities();
 
-        // GET: despesas
+        // GET: Tipodelancamentoes
         public ActionResult Index()
         {
-            if (Session["usuarioLogadoID"] != null)
-            {
-                return View(db.despesa.ToList());
-            }
-            else
-            {
-                return RedirectToAction("Login");
-            }
+            return View(db.tipodelancamento.ToList());
         }
 
-        // GET: despesas/Details/5
+        // GET: Tipodelancamentoes/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            despesa despesa = db.despesa.Find(id);
-            if (despesa == null)
+            tipodelancamento tipodelancamento = db.tipodelancamento.Find(id);
+            if (tipodelancamento == null)
             {
                 return HttpNotFound();
             }
-            return View(despesa);
+            return View(tipodelancamento);
         }
 
-        // GET: despesas/Create
+        // GET: Tipodelancamentoes/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: despesas/Create
+        // POST: Tipodelancamentoes/Create
         // Para proteger-se contra ataques de excesso de postagem, ative as propriedades específicas às quais deseja se associar. 
         // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "despesaId,descricao")] despesa despesa)
+        public ActionResult Create([Bind(Include = "tipolancamentoId,descrição")] tipodelancamento tipodelancamento)
         {
             if (ModelState.IsValid)
             {
-                db.despesa.Add(despesa);
+                db.tipodelancamento.Add(tipodelancamento);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(despesa);
+            return View(tipodelancamento);
         }
 
-        // GET: despesas/Edit/5
+        // GET: Tipodelancamentoes/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            despesa despesa = db.despesa.Find(id);
-            if (despesa == null)
+            tipodelancamento tipodelancamento = db.tipodelancamento.Find(id);
+            if (tipodelancamento == null)
             {
                 return HttpNotFound();
             }
-            return View(despesa);
+            return View(tipodelancamento);
         }
 
-        // POST: despesas/Edit/5
+        // POST: Tipodelancamentoes/Edit/5
         // Para proteger-se contra ataques de excesso de postagem, ative as propriedades específicas às quais deseja se associar. 
         // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "despesaId,descricao")] despesa despesa)
+        public ActionResult Edit([Bind(Include = "tipolancamentoId,descrição")] tipodelancamento tipodelancamento)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(despesa).State = EntityState.Modified;
+                db.Entry(tipodelancamento).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(despesa);
+            return View(tipodelancamento);
         }
 
-        // GET: despesas/Delete/5
+        // GET: Tipodelancamentoes/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            despesa despesa = db.despesa.Find(id);
-            if (despesa == null)
+            tipodelancamento tipodelancamento = db.tipodelancamento.Find(id);
+            if (tipodelancamento == null)
             {
                 return HttpNotFound();
             }
-            return View(despesa);
+            return View(tipodelancamento);
         }
 
-        // POST: despesas/Delete/5
+        // POST: Tipodelancamentoes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            despesa despesa = db.despesa.Find(id);
-            db.despesa.Remove(despesa);
+            tipodelancamento tipodelancamento = db.tipodelancamento.Find(id);
+            db.tipodelancamento.Remove(tipodelancamento);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -129,30 +122,6 @@ namespace Mvc_FluxoCaixa.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
-        }
-        public ActionResult Login()
-        {
-            return View();
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Login(Usuario u)
-        {
-            // esta action trata o post (login)
-            if (ModelState.IsValid) //verifica se é válido
-            {
-                using (FluxoCaixaEntities dc = new FluxoCaixaEntities())
-                {
-                    var v = dc.Usuario.Where(a => a.nomeUsuario.Equals(u.nomeUsuario) && a.senha.Equals(u.senha)).FirstOrDefault();
-                    if (v != null)
-                    {
-                        Session["usuarioLogadoID"] = v.id.ToString();
-                        Session["nomeUsuarioLogado"] = v.nomeUsuario.ToString();
-                        return RedirectToAction("Index");
-                    }
-                }
-            }
-            return View(u);
         }
     }
 }

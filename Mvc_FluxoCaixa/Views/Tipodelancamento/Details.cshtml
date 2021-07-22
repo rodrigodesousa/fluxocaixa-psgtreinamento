@@ -1,0 +1,26 @@
+﻿@model Mvc_FluxoCaixa.Models.tipodelancamento
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tipodelancamento</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.descrição)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descrição)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.tipolancamentoId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -11,7 +11,14 @@ namespace Mvc_FluxoCaixa.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            if (Session["usuarioLogadoID"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
         }
 
         public ActionResult About()
@@ -27,38 +34,6 @@ namespace Mvc_FluxoCaixa.Controllers
 
             return View();
         }
-        public ActionResult Login()
-        {
-            
-            if (Session["usuarioLogadoID"] != null)
-            {
-                return View();
-            }
-            else
-            {
-                return RedirectToAction("Login");
-            }
-        }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Login(Usuario u)
-        {
-            // esta action trata o post (login)
-            if (ModelState.IsValid) //verifica se é válido
-            {
-                using (FluxoCaixaEntities dc = new FluxoCaixaEntities())
-                {
-                    var v = dc.Usuario.Where(a => a.nomeUsuario.Equals(u.nomeUsuario) && a.senha.Equals(u.senha)).FirstOrDefault();
-                    if (v != null)
-                    {
-                        Session["usuarioLogadoID"] = v.id.ToString();
-                        Session["nomeUsuarioLogado"] = v.nomeUsuario.ToString();
-                        return RedirectToAction("Index");
-                    }
-                }
-            }
-            return View(u);
-        }
     }
 }

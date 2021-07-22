@@ -130,9 +130,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\DespesaController.cs" />
+    <Compile Include="Controllers\FluxodecaixaController.cs" />
     <Compile Include="Controllers\FornecedorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
+    <Compile Include="Controllers\TipodelancamentoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -247,7 +249,18 @@
     <Content Include="Views\Produto\Details.cshtml" />
     <Content Include="Views\Produto\Edit.cshtml" />
     <Content Include="Views\Produto\Index.cshtml" />
-    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Despesa\Login.cshtml" />
+    <Content Include="Views\Tipodelancamento\Create.cshtml" />
+    <Content Include="Views\Tipodelancamento\Delete.cshtml" />
+    <Content Include="Views\Tipodelancamento\Details.cshtml" />
+    <Content Include="Views\Tipodelancamento\Edit.cshtml" />
+    <Content Include="Views\Tipodelancamento\Index.cshtml" />
+    <Content Include="Views\Fluxodecaixa\Create.cshtml" />
+    <Content Include="Views\Fluxodecaixa\Delete.cshtml" />
+    <Content Include="Views\Fluxodecaixa\Details.cshtml" />
+    <Content Include="Views\Fluxodecaixa\Edit.cshtml" />
+    <Content Include="Views\Fluxodecaixa\Index.cshtml" />
+    <Content Include="Views\Fluxodecaixa\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

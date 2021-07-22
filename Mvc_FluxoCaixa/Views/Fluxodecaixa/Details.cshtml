@@ -1,0 +1,90 @@
+﻿@model Mvc_FluxoCaixa.Models.fluxodecaixa
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>fluxodecaixa</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.data)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.data)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.qtd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.qtd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.valorproduto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.valorproduto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tipodemovimento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipodemovimento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cliente.nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cliente.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.despesa.descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.despesa.descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fornecedor.nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fornecedor.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.produto.descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.produto.descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tipodelancamento.descrição)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipodelancamento.descrição)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.fluxodecaixaid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
