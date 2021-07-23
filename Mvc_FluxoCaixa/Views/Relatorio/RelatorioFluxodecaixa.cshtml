@@ -1,0 +1,128 @@
+﻿@model PagedList.IPagedList<Mvc_FluxoCaixa.Models.fluxodecaixa>
+
+<h2>Relatorio Fluxodecaixa</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Data
+        </th>
+        <th>
+            Qtd
+        </th>
+        <th>
+            Valor Produto
+        </th>
+        <th>
+            Tipo de Movimento
+        </th>
+        <th>
+            Cliente
+        </th>
+        <th>
+            Despesa
+        </th>
+        <th>
+            Fornecedor
+        </th>
+        <th>
+            Produto
+        </th>
+        <th>
+            Tipo Lançamento
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.qtd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.valorproduto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tipodemovimento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cliente.nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.despesa.descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fornecedor.nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.produto.descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tipodelancamento.descrição)
+            </td>
+        </tr>
+    }
+    <tr>
+        <td><b>@Model.Count registros de @Model.TotalItemCount</b></td>
+        <td><a href="/Relatorio/RelatorioFluxodecaixa?pdf=true"><b>Gerar Relatório em PDF</b></a></td>
+    </tr>
+
+</table>
+@{
+    if (Model.TotalItemCount != Model.Count)
+    {
+        <div class="row">
+            <div class="col-md-12">
+                Página @(Model.PageCount<Model.PageNumber? 0 : Model.PageNumber) de @Model.PageCount
+                @if (Model.HasPreviousPage)
+                {
+                    @Html.ActionLink("<<", "RelatorioFluxodecaixa", new
+                    {
+                        pagina = 1,
+     sortOrder = ViewBag.CurrentSort,
+                        currentFilter = ViewBag.CurrentFilter
+                    })
+                    @Html.Raw(" ");
+                    @Html.ActionLink("< Anterior", "RelatorioFluxodecaixa", new
+                    {
+                        pagina = Model.PageNumber - 1,
+     sortOrder = ViewBag.CurrentSort,
+                        currentFilter = ViewBag.CurrentFilter
+                    })
+                }
+                else
+                {
+                    @:<<
+                    @Html.Raw(" ");
+                    @:< Anterior
+                }
+                @if (Model.HasNextPage)
+                {
+                    @Html.ActionLink("Próxima >", "RelatorioFluxodecaixa", new
+                    {
+                        pagina = Model.PageNumber + 1,
+     sortOrder = ViewBag.CurrentSort,
+                        currentFilter = ViewBag.CurrentFilter
+                    })
+                    @Html.Raw(" ");
+                    @Html.ActionLink(">>", "RelatorioFluxodecaixa", new
+                    {
+                        pagina = Model.PageCount,
+     sortOrder = ViewBag.CurrentSort,
+                        currentFilter = ViewBag.CurrentFilter
+                    })
+                }
+                else
+                {
+                    @:Próxima >
+                    @Html.Raw(" ")
+                    @:>>
+                }
+            </div>
+        </div>
+    }
+}

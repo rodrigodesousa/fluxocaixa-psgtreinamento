@@ -268,3 +268,8 @@ C:\Users\PSG\source\repos\fluxocaixa-psgtreinamento\Mvc_FluxoCaixa\obj\Debug\Mvc
 C:\Users\PSG\source\repos\fluxocaixa-psgtreinamento\Mvc_FluxoCaixa\obj\Debug\Mvc_FluxoCaixa.pdb
 C:\Users\PSG\source\repos\fluxocaixa-psgtreinamento\Mvc_FluxoCaixa\obj\Debug\Mvc_FluxoCaixa.csproj.AssemblyReference.cache
 C:\Users\rodrigo\Documents\projetos\fluxocaixa-psgtreinamento\Mvc_FluxoCaixa\obj\Debug\Mvc_FluxoCaixa.csproj.AssemblyReference.cache
+C:\Users\rodrigo\Documents\projetos\fluxocaixa-psgtreinamento\Mvc_FluxoCaixa\bin\PagedList.dll
+C:\Users\rodrigo\Documents\projetos\fluxocaixa-psgtreinamento\Mvc_FluxoCaixa\bin\PagedList.Mvc.dll
+C:\Users\rodrigo\Documents\projetos\fluxocaixa-psgtreinamento\Mvc_FluxoCaixa\bin\Rotativa.dll
+C:\Users\rodrigo\Documents\projetos\fluxocaixa-psgtreinamento\Mvc_FluxoCaixa\bin\PagedList.xml
+C:\Users\rodrigo\Documents\projetos\fluxocaixa-psgtreinamento\Mvc_FluxoCaixa\bin\PagedList.Mvc.xml
